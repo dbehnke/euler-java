@@ -1,4 +1,4 @@
-package euler.dbehnke.github.com;
+package com.github.dbehnke.euler;
 
 import java.util.ArrayList;
 import java.math.*;
@@ -43,6 +43,7 @@ public class Main {
     }
 
     static long problem4() {
+        //this is still broken - i haven't completed it yet
         long largest = 0;
         for (int i = 100; i < 999; i++) {
             for (int j = 100; j < 999; j++) {
