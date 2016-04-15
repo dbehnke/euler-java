@@ -51,15 +51,9 @@ public class Main {
                 String s = Long.toString(product);
                 if (s.length() % 2 == 0) {
                     String first = s.substring(0,s.length()/2);
-                    String second = s.substring(s.length()/2,s.length());
-
-                    char[] b = second.toCharArray();
-                    String reversesecond = "";
-                    for (int k = b.length - 1; k > -1; k--) {
-                        reversesecond += "" + b[k];
-                    }
-                    //System.out.println(product + " " + first + " " + second + " " + reversesecond);
-                    if (first.equals(reversesecond)) {
+                    StringBuffer sb = new StringBuffer(s.substring(s.length()/2,s.length()));
+                    sb = sb.reverse();
+                    if (first.equals(sb.toString())) {
                         //System.out.println(first + " " + second);
                         if (product > largest) largest = product;
                     }
