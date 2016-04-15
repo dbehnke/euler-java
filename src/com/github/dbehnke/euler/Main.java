@@ -62,11 +62,30 @@ public class Main {
         return largest;
     }
 
-    public static void main(String[] args) {
+    public static long problem5() {
+        //brute force approach.
+        long v = 0;
+        boolean found = false;
+        while (!found) {
+            v++;
+            found = true;
+            for (long i = 1; i < 21; i++) {
+                if (v % i != 0) {
+                    found = false;
+                    break;
+                }
+            }
+        }
+        return v;
+    }
 
+    public static void main(String[] args) {
+        long start = System.currentTimeMillis();
         //System.out.println("problem 2 - " + problem2());
         //System.out.println("problem 3 - " + problem3(600851475143L));
-        System.out.println("problem 4 - " + problem4());
-
+        //System.out.println("problem 4 - " + problem4());
+        System.out.println("problem 5 - " + problem5());
+        long finish = System.currentTimeMillis();
+        System.out.println("Time: " + (finish - start) + "ms");
     }
 }
