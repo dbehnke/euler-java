@@ -91,13 +91,28 @@ public class Main {
         return second - first;
     }
 
+    public static long problem7() {
+        long primesfound = 0;
+        long lastprime = 2;
+        long i = 1;
+        while (primesfound < 10001) {
+            i++;
+            if (checkprime(i)) {
+                lastprime = i;
+                primesfound++;
+            }
+        }
+        return lastprime;
+    }
+
     public static void main(String[] args) {
         long start = System.currentTimeMillis();
         //System.out.println("problem 2 - " + problem2());
         //System.out.println("problem 3 - " + problem3(600851475143L));
         //System.out.println("problem 4 - " + problem4());
         //System.out.println("problem 5 - " + problem5());
-        System.out.println("problem 6 - " + problem6());
+        //System.out.println("problem 6 - " + problem6());
+        System.out.println("problem 7 - " + problem7());
         long finish = System.currentTimeMillis();
         System.out.println("Time: " + (finish - start) + "ms");
     }
