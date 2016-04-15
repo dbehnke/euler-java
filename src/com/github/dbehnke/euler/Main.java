@@ -50,18 +50,18 @@ public class Main {
                 long product = i * j;
                 String s = Long.toString(product);
                 if (s.length() % 2 == 0) {
-                    //even numbers canidate for palindrome
-                    boolean palindrome = true;
-                    for (int k = 0; k < s.length() / 2; k++) {
-                        char[] ss = s.toCharArray();
-                        if (ss[0] != ss[s.length()-k-1]) {
-                            palindrome = false;
-                            break;
-                        }
+                    String first = s.substring(0,s.length()/2);
+                    String second = s.substring(s.length()/2,s.length());
+
+                    char[] b = second.toCharArray();
+                    String reversesecond = "";
+                    for (int k = b.length - 1; k > -1; k--) {
+                        reversesecond += "" + b[k];
                     }
-                    if (palindrome) {
-                     System.out.println(product);
-                     if (product > largest) largest = product;
+                    //System.out.println(product + " " + first + " " + second + " " + reversesecond);
+                    if (first.equals(reversesecond)) {
+                        //System.out.println(first + " " + second);
+                        if (product > largest) largest = product;
                     }
                 }
             }
