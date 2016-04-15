@@ -79,12 +79,25 @@ public class Main {
         return v;
     }
 
+    public static long problem6() {
+        long first = 0;
+        long second = 0;
+        for (long i = 1; i <= 100; i++) {
+            first += (i*i);
+            second += i;
+        }
+        second = second * second;
+        System.out.println("" + first + " " + second);
+        return second - first;
+    }
+
     public static void main(String[] args) {
         long start = System.currentTimeMillis();
         //System.out.println("problem 2 - " + problem2());
         //System.out.println("problem 3 - " + problem3(600851475143L));
         //System.out.println("problem 4 - " + problem4());
-        System.out.println("problem 5 - " + problem5());
+        //System.out.println("problem 5 - " + problem5());
+        System.out.println("problem 6 - " + problem6());
         long finish = System.currentTimeMillis();
         System.out.println("Time: " + (finish - start) + "ms");
     }
