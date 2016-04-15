@@ -18,8 +18,11 @@ public class Main {
         return sum;
     }
 
-    static boolean checkprime(long n) {
-        for (long i = 2; i < n; i++) {
+    static boolean isPrime(long n) {
+        if (n == 1) return false;
+        if (n == 2) return true;
+        if (n % 2 == 0) return false;
+        for (long i = 3; i*i <= n; i+=2) {
             if (n % i == 0) {
                 return false;
             }
@@ -34,8 +37,8 @@ public class Main {
           if (n % i == 0) {
               long a = i;
               long b = n/i;
-              if (checkprime(a) && a > largest) largest = a;
-              if (checkprime(b) && b > largest) largest = b;
+              if (isPrime(a) && a > largest) largest = a;
+              if (isPrime(b) && b > largest) largest = b;
           }
             //System.out.println(i);
         }
@@ -92,12 +95,12 @@ public class Main {
     }
 
     public static long problem7() {
-        long primesfound = 0;
+        long primesfound = 1;
         long lastprime = 2;
-        long i = 1;
+        long i = 2;
         while (primesfound < 10001) {
             i++;
-            if (checkprime(i)) {
+            if (isPrime(i)) {
                 lastprime = i;
                 primesfound++;
             }
