@@ -51,14 +51,9 @@ public class Main {
             for (int j = 100; j < 999; j++) {
                 long product = i * j;
                 String s = Long.toString(product);
-                if (s.length() % 2 == 0) {
-                    String first = s.substring(0,s.length()/2);
-                    StringBuffer sb = new StringBuffer(s.substring(s.length()/2,s.length()));
-                    sb = sb.reverse();
-                    if (first.equals(sb.toString())) {
-                        //System.out.println(first + " " + second);
-                        if (product > largest) largest = product;
-                    }
+                if (isPalindrome(s)) {
+                    //System.out.println(String.format("%d %d %s", i, j, s));
+                    if (product > largest) largest = product;
                 }
             }
         }
@@ -108,14 +103,36 @@ public class Main {
         return lastprime;
     }
 
+
+    public static boolean isBinaryPalindrome(int x) {
+        String xs = Integer.toBinaryString(x);
+        return isPalindrome(xs);
+    }
+
+
+    public static boolean isPalindrome(String s) {
+        if (s == null) return true;
+        if (s.length() <= 1) return true;
+        char first = s.charAt(0);
+        char last = s.charAt(s.length()-1);
+        if (first == last) {
+            if (s.length() == 2) return true;
+            return isPalindrome(s.substring(1, s.length() - 1));
+        }
+
+        return false;
+
+    }
+
     public static void main(String[] args) {
         long start = System.currentTimeMillis();
         //System.out.println("problem 2 - " + problem2());
         //System.out.println("problem 3 - " + problem3(600851475143L));
-        //System.out.println("problem 4 - " + problem4());
+        System.out.println("problem 4 - " + problem4());
         //System.out.println("problem 5 - " + problem5());
         //System.out.println("problem 6 - " + problem6());
-        System.out.println("problem 7 - " + problem7());
+        // System.out.println("problem 7 - " + problem7());
+        //System.out.println(isPalindrome("101"));
         long finish = System.currentTimeMillis();
         System.out.println("Time: " + (finish - start) + "ms");
     }
